@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     'index': Path.resolve(__dirname, '../src/scripts/index.js'),
     'read': Path.resolve(__dirname, '../src/scripts/read.js'),
+    'handlebars': Path.resolve(__dirname, '../src/scripts/handlebars.js'),
   },
   output: {
     path: Path.join(__dirname, '../build'),
@@ -32,7 +33,12 @@ module.exports = {
       chunks: ['read'],
       filename: 'read.html',
       template: Path.resolve(__dirname, '../src/read.html')
-    })    
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['handlebars'],
+      filename: 'handlebars.html',
+      template: Path.resolve(__dirname, '../src/handlebars.handlebars')
+    })         
   ],
   resolve: {
     alias: {
@@ -41,6 +47,8 @@ module.exports = {
   },
   module: {
     rules: [
+      // Include pug-loader to process the pug files
+      { test: /\.handlebars$/, loader: "handlebars-loader" },     
       {
         test: /\.mjs$/,
         include: /node_modules/,
