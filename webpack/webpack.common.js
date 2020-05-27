@@ -27,17 +27,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['index'],
       filename: 'index.html',
-      template: Path.resolve(__dirname, '../src/index.html')
+      template: Path.resolve(__dirname, '../src/index.handlebars')
     }),
     new HtmlWebpackPlugin({
-      chunks: ['read'],
-      filename: 'read.html',
-      template: Path.resolve(__dirname, '../src/read.html')
+      chunks: ['index'],
+      filename: 'login/index.html',
+      template: Path.resolve(__dirname, '../src/login.handlebars')
     }),
     new HtmlWebpackPlugin({
-      chunks: ['handlebars'],
-      filename: 'handlebars.html',
-      template: Path.resolve(__dirname, '../src/handlebars.handlebars')
+      chunks: ['index'],
+      filename: 'register/index.html',
+      template: Path.resolve(__dirname, '../src/register.handlebars')
     })         
   ],
   resolve: {
