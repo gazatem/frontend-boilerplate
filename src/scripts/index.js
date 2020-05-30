@@ -1,15 +1,28 @@
 import '../styles/index.scss';
+var template = require("../index.handlebars");
 const axios = require('axios');
 
-axios.get('https://gorest.co.in/public-api/posts?_format=json&access-token=tWqpGCFRlWqAAw_X9jDhLtQHZ76kC7WO2SJo')
-  .then(function (response) {
-    // handle success
-    console.log(response);
+
+axios({
+    url: 'http://localhost:8000/products',
+    method: 'get',
+    timeout: 8000,
+    headers: {
+      'Content-Type': 'application/json',
+    }
   })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
+  .then(res => render(res.data))
+  .catch(err => {
+    console.error(err);
   });
+
+
+function render(products) {
+  var div = document.createElement('div');
+  div.innerHTML = template({
+    title: "Products listing:",
+    products: products.data
+  });
+  document.body.appendChild(div);
+}
+ 

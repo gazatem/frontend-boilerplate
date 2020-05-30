@@ -11,12 +11,14 @@
     <div class="row">
       <div class="col">
          
-        <h1>webpack starter</h1>
-        <p style="height: 390px;">✨ A lightweight foundation for your next webpack based frontend project.</p>
-
+        <h1> {{title}}</h1>
          
-       
-
+        <ul>
+          {{#each products}}
+            <li>{{this.title}}</li>
+          {{/each}}
+        </ul>
+          
       </div>
     </div>
   

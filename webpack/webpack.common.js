@@ -27,7 +27,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['index'],
       filename: 'index.html',
-      template: Path.resolve(__dirname, '../src/index.handlebars')
     }),
     new HtmlWebpackPlugin({
       chunks: ['index'],
