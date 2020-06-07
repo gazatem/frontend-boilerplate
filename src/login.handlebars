@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
+  <title>Login</title>
 </head>
 <body>
  {{> partials/header }} 
   <div class="container">
     <div class="row">
       <div class="col">
-         
-        <h1>Login</h1>
-        <p style="height: 390px;">✨ A lightweight foundation for your next webpack based frontend project.</p>
-
-         
-       
-
+      <form>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+ 
+        <button type="button" class="btn btn-primary login">Login</button>
+      </form>
+          
       </div>
     </div>
   

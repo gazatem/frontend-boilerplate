@@ -2,19 +2,11 @@ import '../styles/index.scss';
 var template = require("../index.handlebars");
 const axios = require('axios');
 
+var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append('Access-Control-Allow-Origin', '*');
 
-axios({
-    url: 'http://localhost:8000/products',
-    method: 'get',
-    timeout: 8000,
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-  .then(res => render(res.data))
-  .catch(err => {
-    console.error(err);
-  });
 
 
 function render(products) {

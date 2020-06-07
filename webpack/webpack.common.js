@@ -6,8 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     'index': Path.resolve(__dirname, '../src/scripts/index.js'),
-    'read': Path.resolve(__dirname, '../src/scripts/read.js'),
+    'register': Path.resolve(__dirname, '../src/scripts/register.js'),
     'handlebars': Path.resolve(__dirname, '../src/scripts/handlebars.js'),
+    'login': Path.resolve(__dirname, '../src/scripts/login.js'),
   },
   output: {
     path: Path.join(__dirname, '../build'),
@@ -29,12 +30,12 @@ module.exports = {
       filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
-      chunks: ['index'],
+      chunks: ['login'],
       filename: 'login/index.html',
       template: Path.resolve(__dirname, '../src/login.handlebars')
     }),
     new HtmlWebpackPlugin({
-      chunks: ['index'],
+      chunks: ['register'],
       filename: 'register/index.html',
       template: Path.resolve(__dirname, '../src/register.handlebars')
     })         
